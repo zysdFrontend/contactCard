@@ -1,2 +1,43 @@
 <!--pages/website/website.wxml-->
-<text>pages/website/website.wxml</text>
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="300" indicator-color="rgba(180,180,180,0.7)" indicator-active-color="rgb(255,255,255)" circular="true">
+  <swiper-item>
+    <image src="/images/website_banner_1.jpg" class="slide-image" mode="widthFix"/>
+  </swiper-item>
+  <swiper-item>
+    <image src="/images/equityInvestment_detail_1.jpg" class="slide-image" mode="widthFix"/>
+  </swiper-item>
+  <swiper-item>
+    <image src="/images/financingGuarantee_detail_1.jpg" class="slide-image" mode="widthFix"/>
+  </swiper-item>
+  <swiper-item>
+    <image src="/images/investmentBusiness_detail_1.jpg" class="slide-image" mode="widthFix"/>
+  </swiper-item>
+  <swiper-item>
+    <image src="/images/microfinance_detail_1.jpg" class="slide-image" mode="widthFix"/>
+  </swiper-item>
+</swiper>
+<view class="detail_container">
+  <image src="/images/website_detail_1.jpg"  mode="widthFix" />
+  <image src="/images/website_detail_2.jpg"  mode="widthFix" />
+  <image src="/images/website_detail_3.jpg"  mode="widthFix" />
+  <image src="/images/website_detail_4.jpg"  mode="widthFix" />
+  <image src="/images/website_detail_5.jpg"  mode="widthFix" />
+  <image src="/images/website_detail_6.jpg"  mode="widthFix" />
+</view>
+<view class="msg_box" bindtap="checkMap">
+  <text class="title"><text class="dotted"></text>公司地址</text>
+  <view class="text_box">
+    <text class="text">佛山市顺德区乐从镇岭南大道南2号中欧中心D栋5楼</text>
+    <text class="iconfont icon-dizhi"></text>
+  </view>
+</view>
+<view class="msg_box" bindtap='makePhoneCall' data-phonenum="0757-83303188">
+  <text class="title"><text class="dotted"></text>公司电话</text>
+  <view class="text_box">
+    <text class="text">0757-83303188</text>
+    <text class="iconfont icon-dianhua"></text>
+  </view>
+</view>
+<view class="qr_code">
+  <image src="/images/website_detail_7.jpg" mode='widthFix' />
+</view>

@@ -1,0 +1,4 @@
+/* pages/product/engineeringGuarantee/engineeringGuarantee.wxss */
+page{
+  background-color: #f7f7f7;
+}

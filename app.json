@@ -4,7 +4,15 @@
     "pages/card_info/card_info",
     "pages/product/product",
     "pages/website/website",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/product/financingGuarantee/financingGuarantee",
+    "pages/product/engineeringGuarantee/engineeringGuarantee",
+    "pages/product/microfinance/microfinance",
+    "pages/product/equityInvestment/equityInvestment",
+    "pages/product/investmentBusiness/investmentBusiness",
+    "pages/product/lawsuitGuarantee/lawsuitGuarantee",
+    "pages/product/incrementService/incrementService",
+    "pages/product/litigationProperty/litigationProperty"
   ],
   "window": {
     "backgroundTextStyle": "light",

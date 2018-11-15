@@ -1,0 +1,4 @@
+/* pages/product/lawsuitGuarantee/lawsuitGuarantee.wxss */
+page{
+  background-color: #f7f7f7;
+}

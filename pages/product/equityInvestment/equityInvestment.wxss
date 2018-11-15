@@ -1,0 +1,4 @@
+/* pages/product/equityInvestment/equityInvestment.wxss */
+page{
+  background-color: #f7f7f7;
+}

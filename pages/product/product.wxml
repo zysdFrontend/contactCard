@@ -1,2 +1,81 @@
 <!--pages/product/product.wxml-->
-<text>678678678678</text>
+<navigator class="product" url='/pages/product/financingGuarantee/financingGuarantee'>
+  <image src='/images/product_financingGuarantee_title_img.jpg' mode="widthFix"></image>
+  <view class="product_bar">
+    <text class="title">融资担保</text>
+    <text class="introduce">诚信、规范、创新、高效</text>
+  </view>
+  <view class="more">
+    <text>了解详情</text>
+  </view>
+</navigator>
+<navigator class="product" url='/pages/product/engineeringGuarantee/engineeringGuarantee'>
+  <image src='/images/product_engineeringGuarantee_title_img.jpg' mode="widthFix"></image>
+  <view class="product_bar">
+    <text class="title">工程担保</text>
+    <text class="introduce">专业、高效、创新</text>
+  </view>
+  <view class="more">
+    <text>了解详情</text>
+  </view>
+</navigator>
+<navigator class="product" url='/pages/product/microfinance/microfinance'>
+  <image src='/images/product_microfinance_title_img.jpg' mode="widthFix"></image>
+  <view class="product_bar">
+    <text class="title">小额贷款</text>
+    <text class="introduce">诚信、规范、灵活、高效</text>
+  </view>
+  <view class="more">
+    <text>了解详情</text>
+  </view>
+</navigator>
+<navigator class="product" url='/pages/product/equityInvestment/equityInvestment'>
+  <image src='/images/product_equityInvestment_title_img.jpg' mode="widthFix"></image>
+  <view class="product_bar">
+    <text class="title">股权投资</text>
+    <text class="introduce">诚信、规范、灵活、高效</text>
+  </view>
+  <view class="more">
+    <text>了解详情</text>
+  </view>
+</navigator>
+<navigator class="product" url='/pages/product/investmentBusiness/investmentBusiness'>
+  <image src='/images/product_investmentBusiness_title_img.jpg' mode="widthFix"></image>
+  <view class="product_bar">
+    <text class="title">投资业务</text>
+    <text class="introduce">诚信、规范、灵活、高效</text>
+  </view>
+  <view class="more">
+    <text>了解详情</text>
+  </view>
+</navigator>
+<navigator class="product" url='/pages/product/lawsuitGuarantee/lawsuitGuarantee'>
+  <image src='/images/product_lawsuitGuarantee_title_img.jpg' mode="widthFix"></image>
+  <view class="product_bar">
+    <text class="title">诉讼保函</text>
+    <text class="introduce">专业、高效、规范、创新</text>
+  </view>
+  <view class="more">
+    <text>了解详情</text>
+  </view>
+</navigator>
+<navigator class="product" url='/pages/product/incrementService/incrementService'>
+  <image src='/images/product_incrementService_title_img.jpg' mode="widthFix"></image>
+  <view class="product_bar">
+    <text class="title">增值服务</text>
+    <text class="introduce">诚信、规范、灵活、高效</text>
+  </view>
+  <view class="more">
+    <text>了解详情</text>
+  </view>
+</navigator>
+<navigator class="product" url='/pages/product/litigationProperty/litigationProperty'>
+  <image src='/images/product_litigationProperty_title_img.jpg' mode="widthFix"></image>
+  <view class="product_bar">
+    <text class="title">诉讼财产</text>
+    <text class="introduce">“财产保全快速担保”服务</text>
+  </view>
+  <view class="more">
+    <text>了解详情</text>
+  </view>
+</navigator>

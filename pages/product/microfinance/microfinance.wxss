@@ -1,0 +1,4 @@
+/* pages/product/microfinance/microfinance.wxss */
+page{
+  background-color: #f7f7f7;
+}

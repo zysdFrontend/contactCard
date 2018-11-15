@@ -59,6 +59,7 @@ App({
   },
   // 获取用户信息
   getUserInfo (callback) {
+    debugger;
     if(this.globalData.userInfo){
       callback && callback(this.globalData.userInfo);
     }else{
