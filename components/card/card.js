@@ -73,8 +73,9 @@ Component({
       });
       if (this.data.isShowQRcode){
         var page = 'pages%2fcard_info%2fcard_info';
+        // var page = ''; 
         this.setData({
-          "qrcodeUrl": APP.globalData.pathPrefix + '/cardController.do?getQRCode&page=' + page +'&scene=' + this.data.cardInfo.id
+          "qrcodeUrl": APP.globalData.pathPrefix + '/cardController.do?getQRCode&page=' + page +'&scene=empId%3d' + this.data.cardInfo.id
         })
       }
     },
