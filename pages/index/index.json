@@ -1,5 +1,7 @@
 {
   "usingComponents": {
     "card": "/components/card/card"
-  }
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

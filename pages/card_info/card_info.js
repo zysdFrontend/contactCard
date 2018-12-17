@@ -5,7 +5,6 @@ Page({
   data: {
     // 名片信息
     cardInfo: {},
-    allowLoad: true,
     current_empId: null
   },
   // 拨打电话
@@ -75,7 +74,7 @@ Page({
   // 返回列表页
   backToList(){
     console.log('backToList');
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/index/index'
     })
   },
@@ -102,7 +101,6 @@ Page({
             this.setData({
               "cardInfo": res.data.obj
             });
-            this.data.allowLoad = true;
           },
           fail: res => { }
         });
@@ -125,20 +123,18 @@ Page({
     });
   },
   _onload(options){
-    this.data.allowLoad = false;
-    var empId = (options && options.empId) || APP.globalData.current_empId;
-    // if (this.data.current_empId === empId)return;
-    this.data.current_empId = empId;
-    if (empId) {// 有传员工id
-      this.getCardInfo(empId, (options && options.empId) ? true : false);//获取名片详情
-    } else {//没传员工id
-      // wx.showToast({
-      //   title: '参数错误！',
-      //   icon: 'none'
-      // });
+    console.log('_onload');
+    if (options.empId){
+      this.getCardInfo(options.empId, true);//获取名片详情
+    } else if (APP.globalData.current_empId){
+      console.log('from list');
+      this.getCardInfo(APP.globalData.current_empId, false);//获取名片详情
+    } else {
+
     }
   },
   onShareAppMessage(ops){
+    console.log('onShareAppMessage');
     return{
       title: '中盈盛达员工名片',
       path: 'pages/card_info/card_info?empId=' + this.data.cardInfo.id,
@@ -147,10 +143,7 @@ Page({
     }
   },
   onLoad(options) {
+    console.log('onLoad');
     this._onload(options);
-  },
-  onShow(options){
-    if (this.data.allowLoad)
-      this._onload(options);
   }
 })
