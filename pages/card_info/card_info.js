@@ -97,6 +97,7 @@ Page({
         wx.request({
           url: APP.globalData.pathPrefix + '/cardController.do?getCardInfo&empId=' + empId,
           success: res => {
+            console.log(res.data.obj);
             wx.hideLoading();// 隐藏加载提示
             this.setData({
               "cardInfo": res.data.obj
