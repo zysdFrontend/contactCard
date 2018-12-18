@@ -105,27 +105,48 @@ Page({
           },
           fail: res => { }
         });
-        if(isBind){//是否需要绑定用户
           // 获取微信用户openId
           APP.getOpenId(openId => {
-            // 绑定微信用户与名片的关联
-            wx.request({
-              url: APP.globalData.pathPrefix + '/cardController.do?bindCardInfo&openId=' + openId + '&empId=' + empId,
-              success: res => { 
-                console.log(res.data.msg);
-              },
-              fail: res => {
-                console.log(res);
-              }
-            })
+            if (isBind) {//是否需要绑定用户
+              // 绑定微信用户与名片的关联
+              wx.request({
+                url: APP.globalData.pathPrefix + '/cardController.do?bindCardInfo&openId=' + openId + '&empId=' + empId,
+                success: res => { 
+                  console.log(res.data.msg);
+                },
+                fail: res => {
+                  console.log(res);
+                }
+              });
+            }
           });
-        }
       }
+    });
+  },
+  // 获取地理信息
+  getLocation(callback){
+      APP.getLocation(res => {
+        APP.getLocationDetail(res.latitude, res.longitude, res => {
+          Object.assign(APP.globalData.location, res.data.result.addressComponent);
+          APP.globalData.location.formatted_address = res.data.result.formatted_address;
+          APP.globalData.location.sematic_description = res.data.result.sematic_description;
+          console.log(APP.globalData);
+          callback && callback(res);
+        });
+      });
+  },
+  // 获取用户微信号信息
+  getUserInfo(callback){
+    APP.getUserInfo(userInfo => {
+      callback && callback(userInfo);
+      // this.getLocation();
+      APP.saveUserInfo(userInfo);
     });
   },
   _onload(options){
     console.log('_onload');
-    APP.getUserInfo();
+    // this.getLocation();
+    this.getUserInfo();
     if (options.empId){
       this.getCardInfo(options.empId, true);//获取名片详情
     } else if (APP.globalData.current_empId){
@@ -135,6 +156,7 @@ Page({
 
     }
   },
+  // 分享事件
   onShareAppMessage(ops){
     console.log('onShareAppMessage');
     return{

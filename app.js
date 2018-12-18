@@ -1,3 +1,4 @@
+// var bmap = require('/utils/bmap-wx.min.js');
 //app.js
 App({
   onLaunch: function () {
@@ -11,6 +12,7 @@ App({
     } else {//没有jsCode
       wx.login({
         success: res => {
+          console.log('loginCode:'+res.code);
           this.globalData.jsCode = res.code;//存入全局
           callback && callback(this.globalData.jsCode);
         },
@@ -40,6 +42,7 @@ App({
   },*/
   // 获取openId
   getOpenId (callback) {
+    console.log('getOpenId');
     if(this.globalData.openId){//已有openId
       callback && callback(this.globalData.openId);
     }else{
@@ -47,7 +50,9 @@ App({
         wx.request({
           url: this.globalData.pathPrefix + '/cardController.do?getWXSessionKey&jsCode=' + jsCode,
           success: res => {
+            console.log(res);
             this.globalData.openId = res.data.obj.openid;
+            this.globalData.unionid = res.data.obj.unionid;
             callback && callback(res.data.obj.openid);
           },
           fail: res => {
@@ -75,9 +80,9 @@ App({
                 callback && callback(res.userInfo);
                 // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
                 // 所以此处加入 callback 以防止这种情况
-                if (this.userInfoReadyCallback) {
-                  this.userInfoReadyCallback(res)
-                }
+                // if (this.userInfoReadyCallback) {
+                //   this.userInfoReadyCallback(res)
+                // }
               },
               fail: res => {
                 console.log(res);
@@ -94,13 +99,18 @@ App({
   },
   // 获取地理位置
   getLocation(callback) {
+    console.log('getLocation');
     if (this.globalData.location) {//已有location
       callback && callback(this.globalData.location);
     } else {//没有location
+      // var BMap = new bmap.BMapWX({
+      //   ak: '75Cp4o6kK39FS67dxL6RPWDSlWX3uCL1'
+      // });
       wx.getLocation({
         type: 'wgs84',
         altitude: true,
-        success: function (res) {
+        success: res => {
+          console.log(res);
           this.globalData.location = res;
           callback && callback(res);
         },
@@ -109,9 +119,40 @@ App({
       });
     }
   },
+  // 获取定位描述
+  getLocationDetail(latitude, longitude, callback){
+    console.log('getLocationDetail');
+    wx.request({
+      url: 'https://api.map.baidu.com/geocoder/v2/?ak=75Cp4o6kK39FS67dxL6RPWDSlWX3uCL1&location=' + latitude + ',' + longitude + '&output=json',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        callback && callback(res);
+      },
+      fail: function (res) {
+        console.log(res);
+      }
+    });
+  },
+  // 保存用户信息
+  saveUserInfo(userInfo) {
+    console.log('saveUserInfo');
+    // var userInfo = this.globalData.userInfo;
+    wx.request({
+      url: this.globalData.pathPrefix + '/cardController.do?saveWechatUserInfo&openId=' + this.globalData.openId + '&nickName=' + userInfo.nickName + '&gender=' + userInfo.gender + '&city=' + userInfo.city + '&province=' + userInfo.province + '&country=' + userInfo.country + '&avatarUrl=' + userInfo.avatarUrl,
+      success: res => {
+        console.log(res);
+      },
+      fail: res => {
+        console.log(res);
+      }
+    })
+  },
   globalData: {
     userInfo: null,
     openId: null,
+    unionid: null,
     accessToken: null,
     location: null,
     jsCode: null,
