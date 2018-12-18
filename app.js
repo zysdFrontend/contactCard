@@ -59,6 +59,7 @@ App({
   },
   // 获取用户信息
   getUserInfo (callback) {
+    console.log('getUserInfo');
     if(this.globalData.userInfo){
       callback && callback(this.globalData.userInfo);
     }else{
@@ -68,6 +69,7 @@ App({
             // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
             wx.getUserInfo({
               success: res => {
+                console.log(res.userInfo);
                 // 可以将 res 发送给后台解码出 unionId
                 this.globalData.userInfo = res.userInfo//存入全局
                 callback && callback(res.userInfo);
@@ -82,7 +84,9 @@ App({
               }
             })
           } else {
-            console.log('else');
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
           }
         }
       });

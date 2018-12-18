@@ -9,7 +9,9 @@ Page({
   },
   // 获取微信用户信息
   bindGetUserInfo(e) {
+    console.log('bindGetUserInfo');
     var userInfo = e.detail.userInfo;
+    console.log(userInfo);
     // 前端存储
     wx.setStorage({
       key: 'userInfo',

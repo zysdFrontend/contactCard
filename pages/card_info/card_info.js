@@ -125,6 +125,7 @@ Page({
   },
   _onload(options){
     console.log('_onload');
+    APP.getUserInfo();
     if (options.empId){
       this.getCardInfo(options.empId, true);//获取名片详情
     } else if (APP.globalData.current_empId){
