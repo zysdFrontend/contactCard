@@ -144,11 +144,14 @@ Page({
     });
   },
   _onload(options){
+    console.log(options);
     console.log('_onload');
     // this.getLocation();
     this.getUserInfo();
     if (options.empId){
       this.getCardInfo(options.empId, true);//获取名片详情
+    } else if (options.scene) {
+      this.getCardInfo(options.scene, true);//获取名片详情
     } else if (APP.globalData.current_empId){
       console.log('from list');
       this.getCardInfo(APP.globalData.current_empId, false);//获取名片详情

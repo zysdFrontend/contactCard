@@ -11,8 +11,8 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.3.0",
-	"appid": "wxea7e6c5b0c718701",
+	"libVersion": "2.4.1",
+	"appid": "wx3e46391bb712ab67",
 	"projectname": "%E4%B8%AD%E7%9B%88%E7%9B%9B%E8%BE%BE-%E6%88%91%E7%9A%84%E5%90%8D%E7%89%87",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -40,10 +40,9 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "扫一扫进入名片详情",
+					"name": "扫一扫",
 					"pathName": "pages/card_info/card_info",
-					"query": "empId=ff808081530431c7015312c3bab02074",
-					"scene": "1011"
+					"query": "empId=402888e747850d560147853c98430046"
 				}
 			]
 		}
