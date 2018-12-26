@@ -11,13 +11,13 @@
           <text class="name">{{cardInfo.name}}\n</text>
           <text class="pinyin">{{cardInfo.code}}</text>
         </view>
-        <view class="position_wrap flex_box">
+        <view class="position_wrap flex_box {{'length_'+cardInfo.jobPositions.length}}">
           <text wx:for="{{cardInfo.jobPositions}}" wx:for-index="idx" wx:if="{{idx<5}}"  wx:key="*this" class="position">{{item}}</text>
         </view>
       </view>
-      <image wx:if="qrcodeUrl" class="qrcode" src="{{qrcodeUrl}}" catchtap="checkQrcode"></image>
       <view class="contract_wrap">
-        <view class="company_name">{{cardInfo.orgName}}</view>
+        <image wx:if="qrcodeUrl" class="qrcode" src="{{qrcodeUrl}}" catchtap="checkQrcode"></image>
+        <view class="{{'company_name '+orgNameClass}}">{{cardInfo.orgName}}</view>
         <view class="address other_info">
           <image class="icon" src="../../images/i_card_list_address.png"></image>
           {{cardInfo.address}}</view>

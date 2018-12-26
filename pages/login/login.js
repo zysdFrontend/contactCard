@@ -1,4 +1,5 @@
 // pages/login/login.js
+var APP = getApp();
 Page({
 
   /**
@@ -9,7 +10,10 @@ Page({
   },
   // 获取微信用户信息
   bindGetUserInfo(e) {
+    console.log('bindGetUserInfo');
     var userInfo = e.detail.userInfo;
+    APP.globalData.userInfo = userInfo//存入全局
+    APP.saveUserInfo(userInfo);
     // 前端存储
     wx.setStorage({
       key: 'userInfo',

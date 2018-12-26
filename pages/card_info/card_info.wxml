@@ -26,7 +26,7 @@
     <button class="btn" plain="true" size="mini" data-clipboarddata="{{cardInfo.post}}" bindtap="setClipboardData">复制</button>
   </view>
   <view wx:if="{{cardInfo.jobEmail}}" class="info_list">
-    <label class="title">邮件</label>
+    <label class="title">邮箱</label>
     <label class="value">{{cardInfo.jobEmail}}</label>
     <button class="btn" plain="true" size="mini" data-clipboarddata="{{cardInfo.jobEmail}}" bindtap="setClipboardData">复制</button>
   </view>

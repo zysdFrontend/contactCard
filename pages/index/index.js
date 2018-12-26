@@ -12,6 +12,7 @@ Page({
   },
   // 获取名片列表
   getCardList(openId, page = 1, rows = 100){
+    console.log('getCardList');
     this.setData({
       "contact_card_list": []
     });
@@ -34,6 +35,7 @@ Page({
                 contact_card_list: rows
               });
             }
+            wx.stopPullDownRefresh();
           }
         });
       }
@@ -41,6 +43,7 @@ Page({
   },
   // 查看名片详情
   checkCardDetail(data) {
+    console.log('checkCardDetail');
     var id = data.detail.id;
     APP.globalData.current_empId = id;
     wx.switchTab({//调整名片详情页
@@ -49,6 +52,7 @@ Page({
   },
   // 删除名片
   removeCard(data) {
+    console.log('removeCard');
     wx.showModal({
       title: '提示',
       content: '是否确认删除该名片？',
@@ -88,15 +92,20 @@ Page({
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad() {
-    // 获取微信用户openId
+  _onload(){
+    console.log('_onload');
     APP.getOpenId(openId => {
       this.data.openId = openId;
       this.getCardList(openId, 1, 10);
     });
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad() {
+    console.log('onLoad');
+    // 获取微信用户openId
+    this._onload();
     // 检查session是否有效
     // wx.checkSession({
     //   success: (res) => {
@@ -123,4 +132,8 @@ Page({
     //   }
     // })
   },
+  onPullDownRefresh () {
+    console.log('onPullDownRefresh');
+    this._onload();
+  }
 })

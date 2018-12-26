@@ -5,7 +5,6 @@ Page({
   data: {
     // 名片信息
     cardInfo: {},
-    allowLoad: true,
     current_empId: null
   },
   // 拨打电话
@@ -75,7 +74,7 @@ Page({
   // 返回列表页
   backToList(){
     console.log('backToList');
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/index/index'
     })
   },
@@ -98,47 +97,71 @@ Page({
         wx.request({
           url: APP.globalData.pathPrefix + '/cardController.do?getCardInfo&empId=' + empId,
           success: res => {
+            console.log(res.data.obj);
             wx.hideLoading();// 隐藏加载提示
             this.setData({
               "cardInfo": res.data.obj
             });
-            this.data.allowLoad = true;
           },
           fail: res => { }
         });
-        if(isBind){//是否需要绑定用户
           // 获取微信用户openId
           APP.getOpenId(openId => {
-            // 绑定微信用户与名片的关联
-            wx.request({
-              url: APP.globalData.pathPrefix + '/cardController.do?bindCardInfo&openId=' + openId + '&empId=' + empId,
-              success: res => { 
-                console.log(res.data.msg);
-              },
-              fail: res => {
-                console.log(res);
-              }
-            })
+            if (isBind) {//是否需要绑定用户
+              // 绑定微信用户与名片的关联
+              wx.request({
+                url: APP.globalData.pathPrefix + '/cardController.do?bindCardInfo&openId=' + openId + '&empId=' + empId,
+                success: res => { 
+                  console.log(res.data.msg);
+                },
+                fail: res => {
+                  console.log(res);
+                }
+              });
+            }
           });
-        }
       }
     });
   },
+  // 获取地理信息
+  getLocation(callback){
+      APP.getLocation(res => {
+        APP.getLocationDetail(res.latitude, res.longitude, res => {
+          Object.assign(APP.globalData.location, res.data.result.addressComponent);
+          APP.globalData.location.formatted_address = res.data.result.formatted_address;
+          APP.globalData.location.sematic_description = res.data.result.sematic_description;
+          console.log(APP.globalData);
+          callback && callback(res);
+        });
+      });
+  },
+  // 获取用户微信号信息
+  getUserInfo(callback){
+    APP.getUserInfo(userInfo => {
+      callback && callback(userInfo);
+      // this.getLocation();
+      APP.saveUserInfo(userInfo);
+    });
+  },
   _onload(options){
-    this.data.allowLoad = false;
-    var empId = (options && options.empId) || APP.globalData.current_empId;
-    // if (this.data.current_empId === empId)return;
-    this.data.current_empId = empId;
-    if (empId) {// 有传员工id
-      this.getCardInfo(empId, (options && options.empId) ? true : false);//获取名片详情
-    } else {//没传员工id
-      // wx.showToast({
-      //   title: '参数错误！',
-      //   icon: 'none'
-      // });
+    console.log(options);
+    console.log('_onload');
+    // this.getLocation();
+    this.getUserInfo();
+    if (options.empId){
+      this.getCardInfo(options.empId, true);//获取名片详情
+    } else if (options.scene) {
+      this.getCardInfo(options.scene, true);//获取名片详情
+    } else if (APP.globalData.current_empId){
+      console.log('from list');
+      this.getCardInfo(APP.globalData.current_empId, false);//获取名片详情
+    } else {
+
     }
   },
+  // 分享事件
   onShareAppMessage(ops){
+    console.log('onShareAppMessage');
     return{
       title: '中盈盛达员工名片',
       path: 'pages/card_info/card_info?empId=' + this.data.cardInfo.id,
@@ -147,10 +170,7 @@ Page({
     }
   },
   onLoad(options) {
+    console.log('onLoad');
     this._onload(options);
-  },
-  onShow(options){
-    if (this.data.allowLoad)
-      this._onload(options);
   }
 })

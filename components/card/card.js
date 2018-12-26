@@ -37,7 +37,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    qrcodeUrl: ""
+    qrcodeUrl: "",
+    orgNameClass: ''
   },
   ready () {
     this.format();
@@ -59,6 +60,7 @@ Component({
       // console.log(cardInfo);
       if(!cardInfo.id)return;
       var position = cardInfo.jobPositions && cardInfo.jobPositions.split(',') || [cardInfo.primaryJobName];
+      var orgNameClass = cardInfo.orgName.length > 20 ? 'isLong' : '';
       this.setData({
         "cardInfo.code": cardInfo.code.replace(/\s/g,""),
         "cardInfo.createTime": util.formatTimeStamp(cardInfo.createTime, 'Y-M-D h:m:s'),
@@ -66,13 +68,15 @@ Component({
         "cardInfo.website": cardInfo.website || "www.join-share.net",
         "cardInfo.address": cardInfo.jobAddress || cardInfo.address || "佛山市顺德区乐从镇岭南大道南2号中欧中心D栋5楼",
         "cardInfo.jobPositions": position,
-        "cardInfo.jobPositionsStr": position.join(',')
+        "cardInfo.jobPositionsStr": position.join(','),
+        "orgNameClass": orgNameClass
       },() => {
         // 触发格式化事件
         this.triggerEvent('format', this.data.cardInfo);
       });
       if (this.data.isShowQRcode){
-        var page = 'pages%2fcard_info%2fcard_info';
+        var page = 'pages/card_info/card_info';
+        // var page = ''; 
         this.setData({
           "qrcodeUrl": APP.globalData.pathPrefix + '/cardController.do?getQRCode&page=' + page +'&scene=' + this.data.cardInfo.id
         })

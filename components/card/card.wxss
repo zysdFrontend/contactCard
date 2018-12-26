@@ -23,7 +23,8 @@ page{
   position: relative;
   background-color: #fff;
   width: 100%;
-  height: 420rpx;
+  /* height: 420rpx; */
+  padding-bottom: 55rpx;
   border-radius: 5rpx;
 }
 .card_wrap .card .logo{
@@ -34,7 +35,7 @@ page{
 }
 .card_wrap .card .main_info{
   padding-left: 140rpx;
-  padding-right: 80rpx;
+  padding-right: 40rpx;
   margin: 30rpx auto;
   display: flex;
   flex-direction: row;
@@ -60,6 +61,7 @@ page{
 }
 .card_wrap .card .main_info .position_wrap{
   max-width: 65%;
+  max-height: 72rpx;
   line-height: 0.5;
   padding-left: 20rpx;
   border-left: 1rpx solid #999;
@@ -70,25 +72,38 @@ page{
   font-size: 18rpx;
   line-height: 1;
   color: #666;
-  display: inline-block;
   margin: 0rpx 15rpx 0rpx 0rpx;
   padding: 0rpx;
+  float: left;
+  margin-bottom: 9rpx;
 }
-.card_wrap .card .qrcode{
-  position:absolute;
-  left:20rpx;
-  bottom:60rpx;
-  width:100rpx;
-  height:100rpx;
+.card_wrap .card .main_info .position_wrap.length_1 .position{
+  font-size: 30rpx;
+  margin-top: 10rpx;
+}
+.card_wrap .card .main_info .position_wrap.length_2 .position{
+  font-size: 24rpx;
+  margin-top: 5rpx;
 }
 .card_wrap .card .contract_wrap{
+  position: relative;
   margin-top: 40rpx;
   padding-left: 140rpx;
   line-height: 0.5;
 }
+.card_wrap .card .contract_wrap .qrcode{
+  position:absolute;
+  left:20rpx;
+  top:32rpx;
+  width:100rpx;
+  height:100rpx;
+}
 .card_wrap .card .contract_wrap>view{
   display: inline-block;
   box-sizing: border-box;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
 }
 .card_wrap .card .contract_wrap .company_name{
   font-size: 22rpx;
@@ -97,6 +112,9 @@ page{
   width: 100%;
   letter-spacing: 4rpx;
   margin-bottom: 5rpx;
+}
+.card_wrap .card .contract_wrap .company_name.isLong{
+  letter-spacing: 0rpx;
 }
 .card_wrap .card .contract_wrap .other_info{
   color: #888;
