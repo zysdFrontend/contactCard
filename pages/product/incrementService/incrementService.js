@@ -1,11 +1,29 @@
 // pages/product/incrementService/incrementService.js
+var APP = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    APP: APP,
+    imgArr: [
+      APP.globalData.pathPrefix + '/webpage/mycard/images/product_incrementService_title_img.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/incrementService_detail_1.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/incrementService_detail_2.jpg'
+    ]
+  },
+  //预览大图
+  previewImg: function (e) {
+    var index = e.currentTarget.dataset.index;
+    var imgArr = this.data.imgArr;
+    wx.previewImage({
+      current: imgArr[index],     //当前图片地址
+      urls: imgArr,               //所有要预览的图片的地址集合 数组形式
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
 
   /**

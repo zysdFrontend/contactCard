@@ -1,28 +1,28 @@
 <!--pages/website/website.wxml-->
 <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="300" indicator-color="rgba(180,180,180,0.7)" indicator-active-color="rgb(255,255,255)" circular="true">
   <swiper-item>
-    <image src="/images/website_banner_1.jpg" class="slide-image" mode="widthFix"/>
+    <image class="slide-image" src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/website_banner_1.jpg'}}" data-index="0" mode="widthFix" bindtap='previewImg' />
   </swiper-item>
   <swiper-item>
-    <image src="/images/equityInvestment_detail_1.jpg" class="slide-image" mode="widthFix"/>
+    <image class="slide-image" src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/equityInvestment_detail_1.jpg'}}" data-index="1" mode="widthFix" bindtap='previewImg' />
   </swiper-item>
   <swiper-item>
-    <image src="/images/financingGuarantee_detail_1.jpg" class="slide-image" mode="widthFix"/>
+    <image class="slide-image" src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/financingGuarantee_detail_1.jpg'}}" data-index="2" mode="widthFix" bindtap='previewImg' />
   </swiper-item>
   <swiper-item>
-    <image src="/images/investmentBusiness_detail_1.jpg" class="slide-image" mode="widthFix"/>
+    <image class="slide-image" src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/investmentBusiness_detail_1.jpg'}}" data-index="3" mode="widthFix" bindtap='previewImg' />
   </swiper-item>
   <swiper-item>
-    <image src="/images/microfinance_detail_1.jpg" class="slide-image" mode="widthFix"/>
+    <image class="slide-image" src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/microfinance_detail_1.jpg'}}" data-index="4" mode="widthFix" bindtap='previewImg' />
   </swiper-item>
 </swiper>
 <view class="detail_container">
-  <image src="/images/website_detail_1.jpg"  mode="widthFix" />
-  <image src="/images/website_detail_2.jpg"  mode="widthFix" />
-  <image src="/images/website_detail_3.jpg"  mode="widthFix" />
-  <image src="/images/website_detail_4.jpg"  mode="widthFix" />
-  <image src="/images/website_detail_5.jpg"  mode="widthFix" />
-  <image src="/images/website_detail_6.jpg"  mode="widthFix" />
+  <image src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/website_detail_1.jpg'}}" data-index="5" mode="widthFix" bindtap='previewImg'  />
+  <image src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/website_detail_2.jpg'}}" data-index="6" mode="widthFix" bindtap='previewImg'  />
+  <image src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/website_detail_3.jpg'}}" data-index="7" mode="widthFix" bindtap='previewImg'  />
+  <image src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/website_detail_4.jpg'}}" data-index="8" mode="widthFix" bindtap='previewImg'  />
+  <image src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/website_detail_5.jpg'}}" data-index="9" mode="widthFix" bindtap='previewImg' />
+  <image src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/website_detail_6.jpg'}}" data-index="10" mode="widthFix" bindtap='previewImg' />
 </view>
 <view class="msg_box" bindtap="checkMap">
   <text class="title"><text class="dotted"></text>公司地址</text>
@@ -39,5 +39,5 @@
   </view>
 </view>
 <view class="qr_code">
-  <image src="/images/website_detail_7.jpg" mode='widthFix' />
+  <image src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/website_detail_7.jpg'}}" data-index="11" mode='widthFix' bindtap='previewImg' />
 </view>

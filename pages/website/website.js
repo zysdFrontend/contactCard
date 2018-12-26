@@ -1,11 +1,38 @@
 // pages/website/website.js
+var APP = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    APP: APP,
+    imgArr: [
+      APP.globalData.pathPrefix + '/webpage/mycard/images/website_banner_1.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/equityInvestment_detail_1.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/financingGuarantee_detail_1.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/investmentBusiness_detail_1.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/microfinance_detail_1.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/website_detail_1.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/website_detail_2.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/website_detail_3.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/website_detail_4.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/website_detail_5.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/website_detail_6.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/website_detail_7.jpg'
+    ]
+  },
+  //预览大图
+  previewImg: function (e) {
+    var index = e.currentTarget.dataset.index;
+    var imgArr = this.data.imgArr;
+    wx.previewImage({
+      current: imgArr[index],     //当前图片地址
+      urls: imgArr,               //所有要预览的图片的地址集合 数组形式
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
   //打电话
   makePhoneCall(e) {

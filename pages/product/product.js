@@ -1,11 +1,12 @@
 // pages/product/product.js
+var APP = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    APP: APP
   },
 
   /**

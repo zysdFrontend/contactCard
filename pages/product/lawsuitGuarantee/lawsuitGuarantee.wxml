@@ -1,6 +1,6 @@
 <!--pages/product/lawsuitGuarantee/lawsuitGuarantee.wxml-->
 <view class="product_detail_top">
-  <image src='/images/product_lawsuitGuarantee_title_img.jpg' mode="widthFix"></image>
+  <image src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/product_lawsuitGuarantee_title_img.jpg'}}" data-index="0" mode="widthFix" bindtap='previewImg'></image>
   <view class="title_bar">
     <text class="title">诉讼保函</text>
     <text class="slogan">专业、高效、规范、创新</text>
@@ -8,9 +8,9 @@
 </view>
 <view class="product_detail">
   <text class="title">业务介绍</text>
-  <image src='/images/lawsuitGuarantee_detail_1.jpg' mode="widthFix"></image>
-  <image src='/images/lawsuitGuarantee_detail_2.jpg' mode="widthFix"></image>
-  <image src='/images/lawsuitGuarantee_detail_3.jpg' mode="widthFix"></image>
+  <image src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/lawsuitGuarantee_detail_1.jpg'}}" data-index="1" mode="widthFix" bindtap='previewImg'></image>
+  <image src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/lawsuitGuarantee_detail_2.jpg'}}" data-index="2" mode="widthFix" bindtap='previewImg'></image>
+  <image src="{{APP.globalData.pathPrefix+'/webpage/mycard/images/lawsuitGuarantee_detail_3.jpg'}}" data-index="3" mode="widthFix" bindtap='previewImg'></image>
 </view>
 <view class="product_detail_share_btn">
   <button open-type="share">转发给朋友</button>
