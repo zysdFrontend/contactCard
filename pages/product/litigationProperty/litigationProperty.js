@@ -8,13 +8,10 @@ Page({
   data: {
     APP: APP,
     imgArr: [
-      APP.globalData.pathPrefix + '/webpage/mycard/images/product_engineeringGuarantee_title_img.jpg',
-      APP.globalData.pathPrefix + '/webpage/mycard/images/engineeringGuarantee_detail_1.jpg',
-      APP.globalData.pathPrefix + '/webpage/mycard/images/engineeringGuarantee_detail_2.jpg',
-      APP.globalData.pathPrefix + '/webpage/mycard/images/engineeringGuarantee_detail_3.jpg',
-      APP.globalData.pathPrefix + '/webpage/mycard/images/engineeringGuarantee_detail_4.jpg',
-      APP.globalData.pathPrefix + '/webpage/mycard/images/engineeringGuarantee_detail_5.jpg',
-      APP.globalData.pathPrefix + '/webpage/mycard/images/engineeringGuarantee_detail_6.jpg'
+      APP.globalData.pathPrefix + '/webpage/mycard/images/product_litigationProperty_title_img.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/litigationProperty_detail_1.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/litigationProperty_detail_2.jpg',
+      APP.globalData.pathPrefix + '/webpage/mycard/images/litigationProperty_detail_3.jpg'
     ]
   },
   //预览大图
