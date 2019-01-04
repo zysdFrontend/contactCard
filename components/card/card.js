@@ -62,7 +62,7 @@ Component({
       var position = cardInfo.jobPositions && cardInfo.jobPositions.split(',') || [cardInfo.primaryJobName];
       var orgNameClass = cardInfo.orgName.length > 20 ? 'isLong' : '';
       this.setData({
-        "cardInfo.code": cardInfo.code.replace(/\s/g,""),
+        "cardInfo.code": cardInfo.code,
         "cardInfo.createTime": util.formatTimeStamp(cardInfo.createTime, 'Y-M-D h:m:s'),
         "cardInfo.orgName": cardInfo.orgName || "广东中盈盛达融资担保投资股份有限公司",
         "cardInfo.website": cardInfo.website || "www.join-share.net",

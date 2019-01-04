@@ -35,7 +35,7 @@
           {{cardInfo.website}}</view>
         <view class="post other_info column_1">
           <image class="icon" src="../../images/i_card_list_post.png"></image>
-          {{cardInfo.post}}</view>
+          {{cardInfo.jobPost}}</view>
         <view class="email other_info column_2">
           <image class="icon" src="../../images/i_card_list_email.png"></image>
           {{cardInfo.jobEmail}}</view>
