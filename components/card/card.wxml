@@ -16,7 +16,7 @@
         </view>
       </view>
       <view class="contract_wrap">
-        <image wx:if="qrcodeUrl" class="qrcode" src="{{qrcodeUrl}}" catchtap="checkQrcode"></image>
+        <image wx:if="{{qrcodeUrl != ''}}" class="qrcode" src="{{qrcodeUrl}}" catchtap="checkQrcode"></image>
         <view class="{{'company_name '+orgNameClass}}">{{cardInfo.orgName}}</view>
         <view class="address other_info">
           <image class="icon" src="../../images/i_card_list_address.png"></image>
